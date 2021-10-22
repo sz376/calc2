@@ -6,4 +6,4 @@ def test_answer():
     assert inc(4) == 5
 def test_spam():
     """This Tests the function"""
-    assert inc(4) == 5
+    assert inc(5) == 6
