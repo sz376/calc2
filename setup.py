@@ -1,4 +1,4 @@
-"""setting up the calculator"""
+"""Setting up the calculator testing environment"""
 from setuptools import setup, find_packages
 
-setup(name="calculator", packages=find_packages())
+setup(name="calc", packages=find_packages())
