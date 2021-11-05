@@ -1,5 +1,5 @@
 # Calculator Project Setup
-[![Build Status](https://app.travis-ci.com/sz376/calc2.svg?branch=main)](https://app.travis-ci.com/sz376/calc2)
+[![Build Status](https://app.travis-ci.com/sz376/calc2.svg?branch=pt2)](https://app.travis-ci.com/sz376/calc2)
 
 To run tests, Lint, and Coverage report use this command:
 
