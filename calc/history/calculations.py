@@ -6,7 +6,6 @@ from calc.calculations.division import Division
 class Calculations:
     """Calculations class manages the history of calculations"""
     history = []
-    # pylint: disable=too-few-public-methods
     @staticmethod
     def clear_history():
         """clear the history of calculations"""
@@ -41,7 +40,6 @@ class Calculations:
     def add_addition_calculation(values):
         """create an addition and add object to history using factory method create"""
         Calculations.add_calculation(Addition.create(values))
-        #Get the result of the calculation
         return True
     @staticmethod
     def add_subtraction_calculation(values):

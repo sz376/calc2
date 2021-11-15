@@ -11,4 +11,5 @@ class Division(Calculation):
                 result = result / value
             except ZeroDivisionError:
                 return "You can't divide by zero!"
+                # use raise in future
         return result
