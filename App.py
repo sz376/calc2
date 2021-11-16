@@ -1,16 +1,18 @@
-import os
+""" This is the main flask driver"""
 import flask
 import calc.calculator
-
 
 app = flask.Flask(__name__)
 
 @app.route('/')
 def hello():
+    """greeting page"""
     return flask.render_template('calculator.html')
-    
-@app.route("/calculate", methods=["POST"])
+
+
+@app.route("/calculator", methods=["POST"])
 def calculate():
+    """calculation operation on received values"""
     values = flask.request.form["values"]
     values = tuple(map(int, values.split(',')))
     operation = flask.request.form["operation"]
@@ -19,28 +21,20 @@ def calculate():
         calc.calculator.Calculator.add_numbers(values)
         result = calc.calculator.Calculator.get_result_value()
         return flask.render_template("calculator.html", result=result)
-
-    elif operation == "subtract":
+    if operation == "subtract":
+        calc.calculator.Calculator.subtract_numbers(values)
+        result = calc.calculator.Calculator.get_result_value()
+        return flask.render_template("calculator.html", result=result)
+    if operation == "multiply":
+        calc.calculator.Calculator.subtract_numbers(values)
+        result = calc.calculator.Calculator.get_result_value()
+        return flask.render_template("calculator.html", result=result)
+    if operation == "divide":
         calc.calculator.Calculator.subtract_numbers(values)
         result = calc.calculator.Calculator.get_result_value()
         return flask.render_template("calculator.html", result=result)
 
-    elif operation == "multiply":
-        calc.calculator.Calculator.subtract_numbers(values)
-        result = calc.calculator.Calculator.get_result_value()
-        return flask.render_template("calculator.html", result=result)
+    return flask.render_template("calculator.html")
 
-    elif operation == "divide":
-        calc.calculator.Calculator.subtract_numbers(values)
-        result = calc.calculator.Calculator.get_result_value()
-        return flask.render_template("calculator.html", result=result)
-
-    else:
-        return flask.render_template("calculator.html")
-
-if __name__ == '__main__': 
-    app.run(
-        host=os.getenv('IP', '0.0.0.0'),
-        port=int(os.getenv('PORT', 8080)),
-        debug=True
-    )
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", debug=True)
