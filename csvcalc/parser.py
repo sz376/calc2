@@ -32,7 +32,9 @@ class Parser:
             calc.calculator.Calculator.division(tup)
             if (
                 calc.calculator.Calculator.get_last_result_value() == "You can't divide by zero!"
+
             ):
+                print("Divide by zero error!")
                 CSVwriter.write_error(
                     time.time(), filename, i, "division", "Divide by zero"
                 )

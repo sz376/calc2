@@ -8,11 +8,11 @@ def test_return_tuples():
     in_csv = "testcsv.csv"
     res = CSVreader.get_list_of_tuples(in_csv)
     res = tuple(res[0])
-    assert res == (1, 2, 3)
+    assert res == (0, 2, 3)
 
 def test_get_dataframe():
     """testing the getting dataframe method"""
     in_csv = "testcsv.csv"
     res = CSVreader.get_dataframe(in_csv)
-    data_frame = pd.DataFrame({'value1': [1], 'value2': [2], 'value3': [3]})
+    data_frame = pd.DataFrame({'value1': [0,1], 'value2': [2,1], 'value3': [3,1]})
     assert_frame_equal(res, data_frame)
