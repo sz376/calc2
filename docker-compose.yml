@@ -1,9 +1,8 @@
-version: "3.8"
+version: "3.2"
 services:
-  app:
+  python:
     build: .
-    command: python app.py
-    ports:
-      - "5000:5000"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     volumes:
-      - .:/python-flask
+      - .:/home/myuser

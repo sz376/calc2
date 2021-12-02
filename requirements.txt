@@ -2,6 +2,4 @@ pytest-cov
 pytest
 pycodestyle
 pytest-pylint
-Flask
-Django
-Jinja2
+pandas
