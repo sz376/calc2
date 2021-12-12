@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IS 218 Tutorial</title>
+
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="IS 218 Tutorial">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body class="background-color">
+
+  <h1 class="text-center heading-padding">How to host a website on Azure Cloud</h1>
+
+  <div class="card card-size mx-auto">
+        <h1>Calculation Result</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <strong>Value 1: </strong> {{ value1 }} <br>
+    <strong>Value 2: </strong> {{ value2 }} <br>
+    <strong>Operation: </strong> {{ operation }} <br>
+    <strong>Result: </strong> {{ result }}
+
+    {% if data %}
+        <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Operation</th>
+        <th>Value 1</th>
+        <th>Value 2</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range(data|length) %}
+        <tr>
+          <td>{{ data.time[i] }}</td>
+          <td>{{ data.operation[i] }}</td>
+          <td>{{ data.value1[i] }}</td>
+          <td>{{ data.value2[i] }}</td>
+          <td>{{ data.result[i] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+        {% else %}
+	        <h1>There are no calculations</h1>
+    {% endif %}
+  </div>
+  <br>
+
+  </div>
+</body>
+{% endblock %}

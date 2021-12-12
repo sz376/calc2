@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important {
+            color: #336699;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IS 218 Tutorial</title>
+
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="IS 218 Tutorial">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body class="background-color">
+
+  <h1 class="text-center heading-padding">How to start an Apache server</h1>
+
+
+  <div class="card card-size mx-auto">
+    <div class="card-body">
+      <h2 class="card-title">How to make a start an Apache server on Docker</h2>
+      <ol>
+        <li>Download docker from <a href="https://docs.docker.com/get-docker/" target="_blank">docker.com</a>
+        <li>Enter terminal and enter your project directory.</li>
+        <li>Enter <code>touch Dockerfile</code> if it does not already exist, then <code>vi Dockerfile</code>
+          A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image</li>
+        <img src="{{ url_for('static', filename='images/docker_download.png') }}" class="remote-img">
+        <li>Make sure your Dockerfile has the following text:</li>
+        <code>
+            FROM httpd:2.4<br>
+            COPY ./public_html/ /usr/local/apache2/htdocs/
+        </code><br>
+        <img src="{{ url_for('static', filename='images/dockerfile_image.png') }}" class="remote-img">
+        <li>Save and exit vi.</li>
+        <li>In the terminal, enter the following <code>docker build -t my-apache .</code></li>
+        <li>Enter <code>docker run -dit -p 8080:80 --name my-running-app my-apache </code></li>
+        <li>Now open up your favorite browser and goto this url <a href="localhost:8080" target="_blank">localhost:8080</a> to see your site.</li>
+        <br>
+        <img src="{{ url_for('static', filename='images/sitepreview.png') }}" class="remote-img">
+      </ol>
+    </div>
+  </div>
+  <br><br>
+  </div>
+</body>
+{% endblock %}

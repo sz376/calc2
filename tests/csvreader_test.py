@@ -1,18 +1,11 @@
 """Testing the Reader"""
 import pandas as pd
-from pandas._testing import assert_frame_equal
-from csvcalc.csvreader import CSVreader
 
-def test_return_tuples():
-    """testing that pandas reader is working"""
-    in_csv = "testcsv.csv"
-    res = CSVreader.get_list_of_tuples(in_csv)
-    res = tuple(res[0])
-    assert res == (0, 2, 3)
-
-def test_get_dataframe():
-    """testing the getting dataframe method"""
-    in_csv = "testcsv.csv"
-    res = CSVreader.get_dataframe(in_csv)
-    data_frame = pd.DataFrame({'value1': [0,1], 'value2': [2,1], 'value3': [3,1]})
-    assert_frame_equal(res, data_frame)
+def test_csv_to_json():
+    """testing the csv to json method"""
+    # pylint: disable=line-too-long
+    my_dict = {'time': {0: 123}, 'operation': {0: 'addition'}, 'value1': {0: 1}, 'value2': {0: 2}, 'result': {0: 3}}
+    data_frame = pd.read_csv("./results/log.csv")
+    data_dict = data_frame.to_dict()
+    print(data_dict)
+    assert data_dict == my_dict
