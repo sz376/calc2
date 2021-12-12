@@ -24,11 +24,8 @@ class CalculatorController(ControllerBase):
             my_tuple = (value1, value2)
             # this will call the correct operation
             if operation == "division":
-                if value2 == 0:
-                    result = "Division by Zero"
-                else:
-                    Calculator.division(my_tuple)
-                    result = Calculator.get_last_result_value()
+                Calculator.division(my_tuple)
+                result = Calculator.get_last_result_value()
             elif operation == "addition":
                 Calculator.addition(my_tuple)
                 result = Calculator.get_last_result_value()

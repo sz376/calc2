@@ -1,3 +1,6 @@
 time,operation,value1,value2,result
-123,addition,1,2,3
-123,addition,1,2,3
+
+1639296777.5111136,addition,1,2,3.0
+1639296790.4692202,addition,1,0,1.0
+1639296802.8583832,subtraction,100,25,75.0
+1639296814.4908254,division,100,0,Zero division error

@@ -5,7 +5,4 @@ class Subtraction(Calculation):
     """subtraction calculation object"""
     def get_result(self):
         """get the subtraction results"""
-        difference_of_values = 0.0
-        for value in self.values:
-            difference_of_values =   difference_of_values - value
-        return difference_of_values
+        return self.values[0] - self.values[1]
